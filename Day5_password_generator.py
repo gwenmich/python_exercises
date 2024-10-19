@@ -10,11 +10,11 @@ nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 def generate_password():
-    random_letters = random.choices(letters, k = nr_letters)
-    random_symbols = random.choices(symbols, k = nr_symbols)
-    random_numbers = random.choices(numbers, k = nr_numbers)
-    random_password = random_symbols + random_letters + random_numbers
+    random_password = (random.choices(letters, k = nr_letters) +
+                       random.choices(symbols, k = nr_symbols) +
+                       random.choices(numbers, k = nr_numbers))
     random.shuffle(random_password)
-    return random_password
+    password = "".join(random_password)
+    return password
 
 print(generate_password())
