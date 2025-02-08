@@ -24,23 +24,23 @@ print("Welcome to Treasure Island")
 print("Your mission is to find the treasure")
 
 print("You find yourself at a crossroads.")
-direction = input("Do you go left or right?").lower()
+direction = input("Do you go left or right?\n").lower()
 
 if direction == "left":
     print("You come into a clearing, there are some paths branching out ahead and left and right.")
-    dir = input("Where do you go?").lower()
+    dir = input("Where do you go?\n").lower()
 
     if dir == "ahead":
         print("You find a small delapitated house.")
-        enter = input("Do you go inside? Y or N").lower()
+        enter = input("Do you go inside? Y or N\n").lower()
 
         if enter == "n":
             print("You go around the back of the house and see a mountain ahead.")
-            mountain = input("Do you go towards the mountain? Y or N")
+            mountain = input("Do you go towards the mountain? Y or N\n")
 
             if mountain == "y":
                 print("You get to the mountain and see a cave.")
-                cave = input("Do you go in the cave? Y or N").lower()
+                cave = input("Do you go in the cave? Y or N\n").lower()
 
                 if cave == "y":
                     print("You find a chest! You open it and find jewels and gold in it! Let's hope it's not cursed...")
@@ -54,7 +54,7 @@ if direction == "left":
             print("You enter and find a bed. You lie down and it feels like a cloud. You take a nap.")
 
     else:
-        swim = input("You find a river. Do you swim across? Y or N").lower()
+        swim = input("You find a river. Do you swim across? Y or N\n").lower()
         if swim == "y":
             print("You make friends with an otter and forget about the treasure.")
         else:
