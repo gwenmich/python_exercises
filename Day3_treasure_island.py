@@ -49,7 +49,7 @@ if direction == "left":
     else:
         swim = input("You find a river. Do you swim across? Y or N").lower()
         if swim == "y":
-            print("You make friends with an otter and forget about the treasure. You lose?")
+            print("You make friends with an otter and forget about the treasure.")
         else:
             print("The sound of the river lulls you into a state of relaxation and you sit and meditate")
 else:
