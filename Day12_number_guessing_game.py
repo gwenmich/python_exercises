@@ -13,53 +13,47 @@ def number_guessing_game():
     print(logo)
     print("Welcome to the Number Guessing Game!")
     print("I'm thinking of a number between 1 and 100.")
-    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
+    attempts = choose_difficulty()
+    guess = 0
+    while guess != random_number:
+        print(f"You have {attempts} attempts remaining to guess the number.")
+        guess = int(input("Make a guess: "))
+        attempts = check_guess(guess, random_number, attempts)
+
+        if attempts == 0:
+            return "You've run out of guesses, you lose."
+        elif guess != random_number:
+            print("Guess again.")
+
+
+
+def choose_difficulty():
+    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
 
     if difficulty == "easy":
-        attempts = 10
-        print("You have 10 attempts remaining to guess the number.")
-        while attempts > 0:
-            guess = int(input("Make a guess: "))
-            if guess == random_number:
-                return f"You got it! The answer was {guess}"
-            elif guess > random_number:
-                attempts -= 1
-                print("Too high.")
-                if attempts == 0:
-                    return "You've run out of guesses, you lose."
-                print("Guess again.")
-                print(f"You have {attempts} attempts remaining to guess the number.")
-            elif guess < random_number:
-                attempts -= 1
-                print("Too low.")
-                if attempts == 0:
-                    return "You've run out of guesses, you lose."
-                print("Guess again.")
-                print(f"You have {attempts} attempts remaining to guess the number.")
-
-
+        return 10
     elif difficulty == "hard":
-        attempts = 5
-        print("You have 5 attempts remaining to guess the number.")
-        while attempts > 0:
-            guess = int(input("Make a guess: "))
-            if guess == random_number:
-                return f"You got it! The answer was {guess}"
-            elif guess > random_number:
-                attempts -= 1
-                print("Too high.")
-                if attempts == 0:
-                    return "You've run out of guesses, you lose."
-                print("Guess again.")
-                print(f"You have {attempts} attempts remaining to guess the number.")
-            elif guess < random_number:
-                attempts -= 1
-                print("Too low.")
-                if attempts == 0:
-                    return "You've run out of guesses, you lose."
-                print("Guess again.")
-                print(f"You have {attempts} attempts remaining to guess the number.")
+        return 5
+    else:
+        raise TypeError("Error - please type 'easy' or 'hard' to choose difficulty.")
 
 
 
-print(number_guessing_game())
+
+def check_guess(guess, random_number, attempts):
+    if guess > random_number:
+        print("Too high.")
+        return attempts - 1
+    elif guess < random_number:
+        print("Too low.")
+        return attempts - 1
+    else:
+        print(f"You got it! The answer was {guess}")
+
+
+
+
+
+
+if __name__ == "__main__":
+    print(number_guessing_game())
